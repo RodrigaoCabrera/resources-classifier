@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test-db": "tsc app/scripts/test-db-connection.ts && node app/scripts/test-db-connection.js",
+    "seed": "tsc app/scripts/seed.ts && node app/scripts/seed.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
