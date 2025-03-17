@@ -3,15 +3,15 @@ import getRelativeTime from "../utils/getRelativeTime";
 
 const posts = await postService.getPosts({ limit: 10 });
 
-console.log({ author: posts })
 export default function ResourcePosts() {
+  if (!posts || posts.length === 0) return null;
   return (
     <div className="bg-gray-50 min-h-screen p-4">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-6">
           {posts.map((resource) => {
             const relativeTime = getRelativeTime(resource.created_at)
-            console.log({ relativeTime })
+
             return (
               <div
                 key={resource.id}
@@ -63,10 +63,10 @@ export default function ResourcePosts() {
                     </span>
                     {resource.technologies && resource.technologies.map((tech) => (
                       <span
-                        key={tech.id}
+                        key={tech.technology_id.id}
                         className="px-2 py-1 bg-gray-200 rounded-full"
                       >
-                        {tech.name}
+                        {tech.technology_id.name}
                       </span>
                     ))}
                   </div>

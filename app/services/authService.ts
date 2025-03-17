@@ -17,6 +17,7 @@ export const authService = {
   // Get the current logged in user
   getCurrentUser: async (): Promise<User | null> => {
     const { data: { session }, error } = await supabase.auth.getSession();
+
     if (error) throw error;
 
     if (!session) return null;
