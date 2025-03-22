@@ -47,7 +47,7 @@ export type Post = {
   author?: Author;
   topic?: Topic;
   category?: Category;
-  technologies?: Technology[];
+  technologies?: { technology_id: Technology }[];
 }
 
 export type PostTechnology = {
